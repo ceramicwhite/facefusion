@@ -44,6 +44,7 @@ trim_frame_start : Optional[int] = None
 trim_frame_end : Optional[int] = None
 temp_frame_format : Optional[TempFrameFormat] = None
 keep_temp : Optional[bool] = None
+temp_directory : Optional[str] = None
 # output creation
 output_image_quality : Optional[int] = None
 output_image_resolution : Optional[str] = None
