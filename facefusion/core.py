@@ -377,10 +377,13 @@ def process_video(start_time : float) -> None:
 	# process frames
 	temp_frame_paths = get_temp_frame_paths(facefusion.globals.target_path)
 	if temp_frame_paths:
-		for frame_processor_module in get_frame_processors_modules(facefusion.globals.frame_processors):
+		total_frames = len(temp_frame_paths)
+		for index, frame_processor_module in enumerate(get_frame_processors_modules(facefusion.globals.frame_processors), start=1):
 			logger.info(wording.get('processing'), frame_processor_module.NAME)
 			frame_processor_module.process_video(facefusion.globals.source_paths, temp_frame_paths)
 			frame_processor_module.post_process()
+			progress = (index / len(facefusion.globals.frame_processors)) * 100
+			logger.info(f'Progress: {progress:.2f}% ({index}/{len(facefusion.globals.frame_processors)} processors)')
 		if is_process_stopping():
 			return
 	else:
