@@ -28,6 +28,8 @@ from facefusion.filesystem import get_temp_frame_paths, get_temp_file_path, crea
 from facefusion.ffmpeg import extract_frames, merge_video, copy_image, finalize_image, restore_audio, replace_audio
 from facefusion.vision import read_image, read_static_images, detect_image_resolution, restrict_video_fps, create_image_resolutions, get_video_frame, detect_video_resolution, detect_video_fps, restrict_video_resolution, restrict_image_resolution, create_video_resolutions, pack_resolution, unpack_resolution
 
+NAME = __name__.upper()
+
 onnxruntime.set_default_logger_severity(3)
 warnings.filterwarnings('ignore', category = UserWarning, module = 'gradio')
 
