@@ -309,7 +309,8 @@ WORDING : Dict[str, Any] =\
 		'webcam_fps_slider': 'WEBCAM FPS',
 		'webcam_image': 'WEBCAM',
 		'webcam_mode_radio': 'WEBCAM MODE',
-		'webcam_resolution_dropdown': 'WEBCAM RESOLUTION'
+		'webcam_resolution_dropdown': 'WEBCAM RESOLUTION',
+		'temp_directory_textbox': 'TEMP DIRECTORY'
 	}
 }
 
