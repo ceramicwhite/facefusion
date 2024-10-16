@@ -6,7 +6,7 @@ import facefusion.choices
 from facefusion import state_manager, wording
 from facefusion.filesystem import is_video
 from facefusion.typing import TempFrameFormat
-from facefusion.uis.core import get_ui_component
+from facefusion.uis.core import get_ui_component, register_ui_component
 
 TEMP_FRAME_FORMAT_DROPDOWN : Optional[gradio.Dropdown] = None
 
