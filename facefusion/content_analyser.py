@@ -1,6 +1,5 @@
 from functools import lru_cache
 
-import os
 import cv2
 import numpy
 from tqdm import tqdm
@@ -39,7 +38,6 @@ MODEL_SET : ModelSet =\
 PROBABILITY_LIMIT = 0.80
 RATE_LIMIT = 10
 STREAM_COUNTER = 0
-IS_DEV_MODE = os.getenv('DEV_MODE', 'true').lower() == 'false'
 
 
 def get_inference_pool() -> InferencePool:
@@ -73,22 +71,15 @@ def analyse_stream(vision_frame : VisionFrame, video_fps : Fps) -> bool:
 
 
 def analyse_frame(vision_frame : VisionFrame) -> bool:
-	vision_frame = prepare_frame(vision_frame)
-	probability = forward(vision_frame)
 
-	return probability > PROBABILITY_LIMIT
+
+	return False
 
 
 def forward(vision_frame : VisionFrame) -> float:
-	content_analyser = get_inference_pool().get('content_analyser')
 
-	with conditional_thread_semaphore():
-		probability = content_analyser.run(None,
-		{
-			'input': vision_frame
-		})[0][0][1]
 
-	return probability
+	return 0.0
 
 
 def prepare_frame(vision_frame : VisionFrame) -> VisionFrame:
@@ -108,10 +99,6 @@ def analyse_image(image_path : str) -> bool:
 
 @lru_cache(maxsize = None)
 def analyse_video(video_path : str, start_frame : int, end_frame : int) -> bool:
-	if IS_DEV_MODE:
-		print("Skipping initial analysing in development mode")
-		return False
-
 	video_frame_total = count_video_frame_total(video_path)
 	video_fps = detect_video_fps(video_path)
 	frame_range = range(start_frame or 0, end_frame or video_frame_total)
