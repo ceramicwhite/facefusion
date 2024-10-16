@@ -9,6 +9,8 @@ from tqdm import tqdm
 
 import facefusion.globals
 from facefusion.typing import ProcessFrames, QueuePayload
+
+NAME = __name__.upper()
 from facefusion.execution import encode_execution_providers
 from facefusion import logger, wording
 
