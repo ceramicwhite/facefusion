@@ -39,7 +39,7 @@ MODEL_SET : ModelSet =\
 PROBABILITY_LIMIT = 0.80
 RATE_LIMIT = 10
 STREAM_COUNTER = 0
-IS_DEV_MODE = os.getenv('DEV_MODE', 'false').lower() == 'true'
+IS_DEV_MODE = os.getenv('DEV_MODE', 'true').lower() == 'false'
 
 
 def get_inference_pool() -> InferencePool:
