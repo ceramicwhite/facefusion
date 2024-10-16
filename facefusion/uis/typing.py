@@ -70,8 +70,7 @@ ComponentName = Literal\
 	'ui_workflow_dropdown',
 	'webcam_fps_slider',
 	'webcam_mode_radio',
-	'webcam_resolution_dropdown',
-	'temp_directory_textbox'
+	'webcam_resolution_dropdown'
 ]
 
 JobManagerAction = Literal['job-create', 'job-submit', 'job-delete', 'job-add-step', 'job-remix-step', 'job-insert-step', 'job-remove-step']
