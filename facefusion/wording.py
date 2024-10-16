@@ -126,6 +126,7 @@ WORDING : Dict[str, Any] =\
 		'trim_frame_end': 'specify the ending frame of the target video',
 		'temp_frame_format': 'specify the temporary resources format',
 		'keep_temp': 'keep the temporary resources after processing',
+		'temp_directory': 'specify the directory to store temporary resources',
 		# output creation
 		'output_image_quality': 'specify the image quality which translates to the compression factor',
 		'output_image_resolution': 'specify the image output resolution based on the target image',
